@@ -1,9 +1,10 @@
 package org.example.domain.enums;
 
+import lombok.Getter;
 import org.example.domain.entities.Pizza;
 
 import java.util.HashSet;
-
+@Getter
 public enum PizzaMenu {
     MARGHERITA("Regular", "Tomato", "Mozzarella", new HashSet<>() {{
         add("Basil");
