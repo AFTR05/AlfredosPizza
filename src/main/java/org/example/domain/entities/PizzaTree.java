@@ -3,15 +3,12 @@ package org.example.domain.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.Set;
+import org.example.domain.nodes.PizzaNode;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
-    private Set<PizzaTree> pizzas;
-    private Client client;
-
-
+public class PizzaTree {
+    private Double price;
+    private String name;
+    private PizzaNode tree;
 }

@@ -9,7 +9,5 @@ import java.util.ArrayList;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Client {
-    String name;
-    String direction;
-    String cellphoneNumber;
+    private String name;
 }
