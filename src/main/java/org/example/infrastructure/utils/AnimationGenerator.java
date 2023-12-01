@@ -4,8 +4,8 @@ import org.example.domain.entities.PizzaTree;
 
 public class AnimationGenerator {
 
-    public static Boolean preparePizza(PizzaTree pizzaTree) {
-        System.out.println("Preparando pizza "+pizzaTree.getName());
+    public static void preparePizza(PizzaTree pizzaTree) {
+        System.out.println("Preparando pizza de "+pizzaTree.getName());
 
         for (int i = 1; i <= 10; i++) {
             System.out.print("[");
@@ -23,8 +23,7 @@ public class AnimationGenerator {
             }
             System.out.print("\r");
         }
-        System.out.println("\n¡La pizza está lista!");
-        return true;
+        System.out.println("\n¡La pizza está lista!\n\n");
     }
 }
 
