@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.example.domain.nodes.OrderNode;
 
 import javax.swing.*;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -32,6 +34,22 @@ public class OrderQueue {
         }
     }
 
+    public void printQueue() {
+        StringBuilder printer = new StringBuilder();
+        mobile = cab;
+        while (mobile != null) {
+            printer.append("\nOrden: ")
+                    .append("- Cliente: ").append(mobile.getOrder().getClient().getName())
+                    .append(" - Pizzas: [");
+            Set<PizzaTree> pizzas = mobile.getOrder().getPizzas();
+            String pizzasInfo = pizzas.stream()
+                    .map(pizzaTree -> "Nombre: " + pizzaTree.getName() + ", Precio: " + pizzaTree.getPrice())
+                    .collect(Collectors.joining(" || "));
+            printer.append(pizzasInfo+" ]");
+            mobile = mobile.getNext();
+        }
+        JOptionPane.showMessageDialog(null, printer);
+    }
     public void deleteNodeQueue(){
         OrderNode delete;
         if (cab == null) {

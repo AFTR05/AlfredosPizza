@@ -24,7 +24,7 @@ public class AnimationGenerator {
             }
             System.out.print("\r");
         }
-        System.out.println("\n¡La pizza está lista!\n\n");
+        System.out.println("\n¡La pizza está lista!\n");
     }
 
     public static void payAndReceive(Order order){

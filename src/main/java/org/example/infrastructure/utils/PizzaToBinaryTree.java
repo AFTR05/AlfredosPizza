@@ -11,15 +11,16 @@ public class PizzaToBinaryTree {
         PizzaNode rootNode = new PizzaNode(pizza.getDoughName());
         PizzaNode sauceNode = new PizzaNode(pizza.getSauceName());
         PizzaNode cheeseNode = new PizzaNode(pizza.getCheeseName());
-        rootNode.setSubright(sauceNode);
+        rootNode.setSubleft(sauceNode);
         rootNode.setSubright(cheeseNode);
         Optional.ofNullable(pizza.getToppings())
                 .ifPresent(toppings -> {
                     for (String topping : toppings) {
                         if (sauceNode.getSubright() != null) {
                             cheeseNode.addChild(new PizzaNode(topping));
+                        }else {
+                            sauceNode.addChild(new PizzaNode(topping));
                         }
-                        sauceNode.addChild(new PizzaNode(topping));
                     }
                 });
         return rootNode;

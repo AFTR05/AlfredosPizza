@@ -5,11 +5,10 @@ import org.example.domain.entities.Pizza;
 import org.example.domain.entities.PizzaTree;
 import org.example.domain.nodes.PizzaNode;
 import org.example.infrastructure.controllers.ModelFactoryController;
-import org.example.infrastructure.utils.AnimationGenerator;
-import org.example.infrastructure.utils.CreatorDefaultObject;
-import org.example.infrastructure.utils.PizzaToBinaryTree;
+import org.example.infrastructure.utils.*;
 import org.example.service.PizzaService;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -41,5 +40,11 @@ public class PizzaServiceImp implements PizzaService {
 
     public void generatePizzas(){
         pizzaTrees=generatePizzaTrees();
+    }
+
+    public void printPizzas(){
+        for (PizzaTree pizzaTree:pizzaTrees){
+            JOptionPane.showMessageDialog(null,PizzaUtils.printPizza(pizzaTree));
+        }
     }
 }

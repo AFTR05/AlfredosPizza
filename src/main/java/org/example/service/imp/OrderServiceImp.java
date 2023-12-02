@@ -42,5 +42,9 @@ public class OrderServiceImp implements OrderService {
         }
     }
 
+    public void printOrders(){
+        orderQueue.printQueue();
+    }
+
 
 }
