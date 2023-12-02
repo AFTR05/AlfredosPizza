@@ -43,14 +43,14 @@ public class OrderQueue {
         delete = null;
     }
 
-    public String printQueue() {
-        StringBuilder message= new StringBuilder("Ordenes\n\n");
+    public Integer amountQueue() {
+        Integer count=0;
         mobile = cab;
         while (mobile != null){
-            message.append("Cliente: ").append(mobile.getOrder().getClient().getName()).append("-Pizzas ").append(mobile.getOrder().getPizzas());
+            count++;
             mobile=mobile.getNext();
         }
-        return message.toString();
+        return count;
     }
 
     public void destroyQueue() {

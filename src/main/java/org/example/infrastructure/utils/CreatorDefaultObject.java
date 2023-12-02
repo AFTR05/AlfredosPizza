@@ -40,16 +40,20 @@ public class CreatorDefaultObject {
         ArrayList<Order> orders = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             Order order = new Order();
+            HashSet<PizzaTree> pizzasClient = new HashSet<>();
             Client[] clientesArray = clients.toArray(new Client[0]);
             order.setClient(clientesArray[new Random().nextInt(clientesArray.length)]);
-            int cantidadPizzas = new Random().nextInt(pizzas.size() + 1);
+            int cantidadPizzas = Math.max(1, new Random().nextInt(pizzas.size()));
+
             PizzaTree[] pizzasArray = pizzas.toArray(new PizzaTree[0]);
             for (int j = 0; j < cantidadPizzas; j++) {
                 PizzaTree pizza = pizzasArray[new Random().nextInt(pizzasArray.length)];
-                order.getPizzas().add(pizza);
+                pizzasClient.add(pizza);
             }
+            order.setPizzas(pizzasClient);
             orders.add(order);
         }
         return orders;
     }
+
 }

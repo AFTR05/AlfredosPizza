@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 public class PizzaServiceImp implements PizzaService {
     private final PizzaShop pizzaShop;
 
-    public PizzaServiceImp() {
-        this.pizzaShop = ModelFactoryController.getInstance().getPizzaShop();
+    public PizzaServiceImp(PizzaShop pizzaShop) {
+        this.pizzaShop = pizzaShop;
     }
 
     private Set<PizzaTree> pizzaTrees;

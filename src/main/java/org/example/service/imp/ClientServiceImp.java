@@ -3,7 +3,9 @@ package org.example.service.imp;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.domain.entities.Client;
+import org.example.domain.entities.Order;
 import org.example.infrastructure.controllers.ModelFactoryController;
+import org.example.infrastructure.utils.AnimationGenerator;
 import org.example.infrastructure.utils.CreatorDefaultObject;
 import org.example.service.ClientService;
 
@@ -13,8 +15,8 @@ import java.util.Set;
 public class ClientServiceImp implements ClientService {
     private final PizzaShop pizzaShop;
 
-    public ClientServiceImp() {
-        this.pizzaShop = ModelFactoryController.getInstance().getPizzaShop();
+    public ClientServiceImp(PizzaShop pizzaShop) {
+        this.pizzaShop = pizzaShop;
     }
 
     private Set<Client> clients;
@@ -24,5 +26,9 @@ public class ClientServiceImp implements ClientService {
 
      public void generateClients(){
          clients=generateEnumsClients();
+     }
+
+     public void receiveAndPayOrder(Order order){
+         AnimationGenerator.payAndReceive(order);
      }
 }

@@ -1,26 +1,37 @@
 package org.example.infrastructure.controllers;
 
+import lombok.Getter;
+import org.example.service.PizzaService;
 import org.example.service.imp.PizzaShop;
 
 public class ModelFactoryController {
     private PizzaShop pizzaShop;
     private static class SingletonHolder {
+        // El constructor de Singleton puede ser llamado desde aquí al ser protected
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
     }
+    // Método para obtener la instancia de nuestra clase
     public static ModelFactoryController getInstance() {
         return SingletonHolder.eINSTANCE;
     }
-
-    public PizzaShop getPizzaShop() {
-        return pizzaShop;
-    }
-
-    public void setPizzaShop(PizzaShop pizzaShop) {
-        this.pizzaShop = pizzaShop;
-    }
-
     public ModelFactoryController() {
         pizzaShop = new PizzaShop();
+    }
+
+    public void generateClients(){
+        pizzaShop.getClientService().generateClients();
+    }
+
+    public void generateOrders(){
+        pizzaShop.getOrderService().generateOrders();
+    }
+
+    public void attendOrders(){
+        pizzaShop.getOrderService().attendOrders();
+    }
+
+    public void generatePizzas(){
+        pizzaShop.getPizzaService().generatePizzas();
     }
 
 }
